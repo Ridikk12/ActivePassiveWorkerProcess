@@ -12,10 +12,15 @@ namespace ActivePasive.Services
     public class RegisterInstanceService : IRegisterInstanceService
     {
         private readonly IRegisterInstanceRepository _registerInstanceRepository;
-
-        public RegisterInstanceService(IRegisterInstanceRepository registerInstanceRepository)
+        private readonly int _timeUntilUnregisterInSeconds;
+        public RegisterInstanceService(IRegisterInstanceRepository registerInstanceRepository
+            , IConfiguration configuration)
         {
             _registerInstanceRepository = registerInstanceRepository;
+            if (!int.TryParse(configuration["TimeUntilUnregisterInSeconds"], out _timeUntilUnregisterInSeconds))
+            {
+                throw new ArgumentException(nameof(_timeUntilUnregisterInSeconds));
+            }
         }
         public async Task Register(string instanceId)
         {
@@ -49,7 +54,7 @@ namespace ActivePasive.Services
         {
 
             var instances = await _registerInstanceRepository.GetAll();
-            var oldRegistrations = instances.Where(x => x.LastUpdated.Value.AddMinutes(1) < DateTime.UtcNow).ToList();
+            var oldRegistrations = instances.Where(x => x.LastUpdated.Value.AddSeconds(_timeUntilUnregisterInSeconds) < DateTime.UtcNow).ToList();
 
             foreach (var instanceRegistration in oldRegistrations)
             {

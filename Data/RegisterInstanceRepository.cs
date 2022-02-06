@@ -7,7 +7,6 @@ namespace ActivePasive.Data
     internal class RegisterInstanceRepository : IRegisterInstanceRepository
     {
         private readonly TableClient _tableClient;
-
         public RegisterInstanceRepository(TableClient tableClient)
         {
             _tableClient = tableClient;
