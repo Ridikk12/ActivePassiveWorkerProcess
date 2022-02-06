@@ -1,6 +1,6 @@
-﻿using ActivePasive.Model;
+﻿using ActivePassive.Model;
 
-namespace ActivePasive.Data.Interfaces;
+namespace ActivePassive.Data.Interfaces;
 
 public interface IRegisterInstanceRepository
 {

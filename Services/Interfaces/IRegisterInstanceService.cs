@@ -1,4 +1,4 @@
-﻿namespace ActivePasive.Services.Interfaces;
+﻿namespace ActivePassive.Services.Interfaces;
 
 public interface IRegisterInstanceService
 {

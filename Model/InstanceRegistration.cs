@@ -1,7 +1,7 @@
 ﻿using Azure;
 using Azure.Data.Tables;
 
-namespace ActivePasive.Model;
+namespace ActivePassive.Model;
 
 public class InstanceRegistration : ITableEntity
 {

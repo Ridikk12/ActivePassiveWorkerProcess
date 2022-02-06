@@ -1,8 +1,8 @@
 using ActivePasive;
-using ActivePasive.Data;
-using ActivePasive.Data.Interfaces;
-using ActivePasive.Services;
-using ActivePasive.Services.Interfaces;
+using ActivePassive.Data;
+using ActivePassive.Data.Interfaces;
+using ActivePassive.Services;
+using ActivePassive.Services.Interfaces;
 using Azure.Data.Tables;
 using Microsoft.Extensions.Azure;
 

@@ -1,6 +1,6 @@
-using ActivePasive.Services.Interfaces;
+using ActivePassive.Services.Interfaces;
 
-namespace ActivePasive
+namespace ActivePassive
 {
 
     public class RegisterInstanceWorkerProcess : BackgroundService

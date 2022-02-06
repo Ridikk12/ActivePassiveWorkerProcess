@@ -1,8 +1,8 @@
-﻿using ActivePasive.Data.Interfaces;
-using ActivePasive.Model;
+﻿using ActivePassive.Data.Interfaces;
+using ActivePassive.Model;
 using Azure.Data.Tables;
 
-namespace ActivePasive.Data
+namespace ActivePassive.Data
 {
     internal class RegisterInstanceRepository : IRegisterInstanceRepository
     {
@@ -13,15 +13,15 @@ namespace ActivePasive.Data
         }
         public Task Delete(string instanceId)
         {
-            return _tableClient.DeleteEntityAsync(InstanceRegistration.PartitionKeyName,instanceId);
+            return _tableClient.DeleteEntityAsync(InstanceRegistration.PartitionKeyName, instanceId);
         }
 
         public async Task<List<InstanceRegistration>> GetAll()
         {
             var instances = new List<InstanceRegistration>();
-            
-            var pages =  _tableClient.QueryAsync<InstanceRegistration>().AsPages();
-           
+
+            var pages = _tableClient.QueryAsync<InstanceRegistration>().AsPages();
+
             await foreach (var page in pages)
             {
                 instances.AddRange(page.Values);

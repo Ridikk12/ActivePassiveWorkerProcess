@@ -1,13 +1,13 @@
-﻿using ActivePasive.Data.Interfaces;
-using ActivePasive.Model;
-using ActivePasive.Services.Interfaces;
+﻿using ActivePassive.Data.Interfaces;
+using ActivePassive.Model;
+using ActivePassive.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ActivePasive.Services
+namespace ActivePassive.Services
 {
     public class RegisterInstanceService : IRegisterInstanceService
     {
